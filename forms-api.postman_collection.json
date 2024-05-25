@@ -1,0 +1,112 @@
+{
+    "info": {
+      "name": "Forms API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create User",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"username\": \"testuser\",\n  \"first_name\": \"Test\",\n  \"last_name\": \"User\",\n  \"email\": \"testuser@example.com\",\n  \"password\": \"password\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/users/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "users",
+              ""
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Create Form",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"title\": \"Survey Form\",\n  \"description\": \"This is a survey form.\",\n  \"questions\": [\n    {\n      \"text\": \"What is your favorite color?\",\n      \"type\": \"radio\",\n      \"options\": [\n        { \"text\": \"Red\" },\n        { \"text\": \"Blue\" },\n        { \"text\": \"Green\" }\n      ]\n    }\n  ]\n}"
+          },
+          "url": {
+            "raw": "http://localhost:8000/forms/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "forms",
+              ""
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Forms",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8000/forms/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "forms",
+              ""
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get Form by ID",
+        "request": {
+          "method": "GET",
+          "header": [],
+          "url": {
+            "raw": "http://localhost:8000/forms/:id",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "8000",
+            "path": [
+              "forms",
+              ":id"
+            ],
+            "variable": [
+              {
+                "key": "id",
+                "value": "1"
+              }
+            ]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
