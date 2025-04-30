@@ -1,20 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
-class UserCreate(BaseModel):
-    username: str
-    first_name: str
-    last_name: str
-    password: str
-    email: str
 
-    class Config:
-        orm_mode = True
-
-class User(BaseModel):
-    username: str
-    first_name: str
-    last_name: str
-    email: str
-
-    class Config:
-        orm_mode = True
+class UserBase(BaseModel):
+    fullname: str
+     
+    model_config = ConfigDict(from_attributes=True)
+    
+class User(UserBase):
+    id: int

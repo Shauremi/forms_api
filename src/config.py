@@ -1,11 +1,13 @@
 from pydantic import PostgresDsn
-from pydantic_settings import SettingsConfigDict, BaseSettings
+from pydantic_settings import BaseSettings
 
 
-class Config(BaseSettings):
-    DB_URL: PostgresDsn
-    model_config = SettingsConfigDict()
+class Settings(BaseSettings):
+    repository_type: str = "memory"
+    DB_URL: PostgresDsn | str = "sqlite:///:memory:"
 
-config = Config(
-    DB_URL="postgresql+psycopg2://postgres:\u0020@localhost:5432/forms"
-)
+    class Config:
+        env_file = ".env"
+
+
+config = Settings()
